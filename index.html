@@ -7,7 +7,7 @@
 		<meta name="author" content="">
 		<link rel="icon" href="assets/conncomm_logo_2.ico">
 		
-		<title>Project Name</title>
+		<title>Style transfer on human voiced music</title>
 		
 		<!-- Bootstrap core CSS -->
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
@@ -65,13 +65,17 @@
 			</div>
 
 			<div class="row mt-5">
-				<div class="col-lg-12">
+				<div class="col-lg-6 col-sm-12">
 					<h3> My approach: MelGAN-VC </h3>
 					<ul>
 						<li> Has proven success on voice conversion and audio style transfer (arbitrarily long) </li>
 						<li> Makes use of spectrograms, i.e., converts the input to spectrogram, transform it and convert it back to audio </li>
 						<li> Uses TraVeL GAN instead of CycleGAN to avoid pixel-wise losses </li>
 					</ul>
+				</div>
+				<div class="col-lg-6 col-sm-12 text-center">
+					<img src="https://miro.medium.com/max/2000/1*V2mgZ7y0ngd3q4DZ01xkEQ.png" alt="Example spectrogram" width="500">
+					<p> Example Spectrogram (Source: <a href="https://towardsdatascience.com/understanding-audio-data-fourier-transform-fft-spectrogram-and-speech-recognition-a4072d228520"> towardsdatascience.com</a>)</p>
 				</div>
 			</div>
 			
@@ -80,9 +84,53 @@
 			<div class="row mt-5 mb-5">
 				<div class="col-lg-6 col-sm-12">
 					<h3> Result </h3>
-					<div class="embed-responsive embed-responsive-16by9">
+					<h5> Country to pop </h5>
+					<div class="row mt-3 mb-3">
 						<!-- insert the embed code from youtube below here -->
-						<iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5qF_qbaWt3Q" allowfullscreen></iframe>
+						<!-- <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/5qF_qbaWt3Q" allowfullscreen></iframe> -->
+						<div class="col-lg-6 col-sm-12">
+							<p> Original (Country) </p>
+							<p> 10 epochs (Country to pop)</p>
+							<p> 20 epochs (Country to pop)</p>
+							<p> 60 epochs (Country to pop)</p>
+							<p> 120 epochs (Country to pop)</p>
+							<p> 181 epochs (Country to pop)</p>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<audio controls>
+								<source src="assets/country.00002.wav" type="audio/wav">
+							</audio>
+							<audio controls>
+								<source src="assets/fake_country00002_10.wav" type="audio/wav">
+							</audio>
+							<audio controls> 
+								<source src="assets/fake_country00002_20.wav" type="audio/wav">
+							</audio>
+							<audio controls>
+								<source src="assets/fake_country00002_60.wav" type="audio/wav">
+							</audio>
+							<audio controls>
+								<source src="assets/fake_country00002_120.wav" type="audio/wav">
+							</audio>
+							<audio controls>
+								<source src="assets/fake_country00002_181.wav" type="audio/wav">
+							</audio>
+						</div>
+					</div>
+					<h5> Pop to pop (test if original song can be recreated) </h5>
+					<div class="row mt-3 mb-3">
+						<div class="col-lg-6 col-sm-12">
+							<p> Original</p>
+							<p> 181 epochs </p>
+						</div>
+						<div class="col-lg-3 col-sm-6">
+							<audio controls>
+								<source src="assets/pop.00001.wav" type="audio/wav">
+							</audio>
+							<audio controls>
+								<source src="assets/fake_pop00001_181.wav" type="audio/wav">
+							</audio>
+						</div>
 					</div>
 				</div>
 				<div class="col-lg-6 col-sm-12 text-center">
@@ -94,9 +142,10 @@
 				<div class="col-lg-12">
 					<h3> Evaluation </h3>
 					<ul>
-						<li> Needs a lot more epochs</li>
+						<li> Pop elements were added to the song (country) while trying to preserve the lyrics (getting clear), but still need improvements </li>
+						<li> Didn't do well when recreating the song, lyrics wasn't clear </li>
+						<li> Probaly needs more epochs</li>
 						<li> All the losses decreased during training, maybe a sign of success </li>
-						<li> Talk about audio results (add later) </li>
 					</ul>
 				</div>
 			</div>
